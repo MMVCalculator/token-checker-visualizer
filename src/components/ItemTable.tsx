@@ -105,7 +105,9 @@ const items: Item[] = [
 ];
 
 const fetchTokenAmount = async (address: string) => {
-  const response = await fetch(`https://www.bkcscan.com/api/v2/tokens/${address}`);
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const targetUrl = `https://www.bkcscan.com/api/v2/tokens/${address}`;
+  const response = await fetch(proxyUrl + targetUrl);
   if (!response.ok) {
     throw new Error('Failed to fetch token amount');
   }
@@ -120,7 +122,7 @@ const ItemTable = () => {
     queryKey: ['tokenData', selectedAddress],
     queryFn: () => fetchTokenAmount(selectedAddress!),
     enabled: !!selectedAddress,
-    onSuccess: (data) => {
+    onSuccess: (data: string) => {
       setResponseData(prevData => ({
         ...prevData,
         [selectedAddress!]: data
