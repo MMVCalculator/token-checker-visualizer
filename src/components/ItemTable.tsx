@@ -109,16 +109,23 @@ const fetchTokenAmount = async (address: string) => {
   if (!response.ok) {
     throw new Error('Failed to fetch token amount');
   }
-  return response.text(); // Change this to text() to get the raw response body
+  return response.text();
 };
 
 const ItemTable = () => {
   const [selectedAddress, setSelectedAddress] = React.useState<string | null>(null);
+  const [responseData, setResponseData] = React.useState<{ [key: string]: string }>({});
 
-  const { data: tokenData, isLoading, error, refetch } = useQuery({
+  const { isLoading, error, refetch } = useQuery({
     queryKey: ['tokenData', selectedAddress],
     queryFn: () => fetchTokenAmount(selectedAddress!),
     enabled: !!selectedAddress,
+    onSuccess: (data) => {
+      setResponseData(prevData => ({
+        ...prevData,
+        [selectedAddress!]: data
+      }));
+    },
   });
 
   const handleCheckAmount = (address: string) => {
@@ -145,6 +152,7 @@ const ItemTable = () => {
             <TableHead>Name Item</TableHead>
             <TableHead>Address</TableHead>
             <TableHead>Action</TableHead>
+            <TableHead>จำนวน</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -156,18 +164,16 @@ const ItemTable = () => {
               <TableCell>{item.nameItem}</TableCell>
               <TableCell>{item.address}</TableCell>
               <TableCell>
-                <div className="flex flex-col items-start">
-                  <Button
-                    onClick={() => handleCheckAmount(item.address)}
-                    disabled={isLoading && selectedAddress === item.address}
-                  >
-                    {isLoading && selectedAddress === item.address ? 'Loading...' : 'ตรวจสอบจำนวน'}
-                  </Button>
-                  {tokenData && selectedAddress === item.address && (
-                    <div className="mt-2 text-sm break-all">
-                      <strong>Response:</strong> {tokenData}
-                    </div>
-                  )}
+                <Button
+                  onClick={() => handleCheckAmount(item.address)}
+                  disabled={isLoading && selectedAddress === item.address}
+                >
+                  {isLoading && selectedAddress === item.address ? 'Loading...' : 'ตรวจสอบจำนวน'}
+                </Button>
+              </TableCell>
+              <TableCell>
+                <div className="text-sm break-all">
+                  {responseData[item.address] || '-'}
                 </div>
               </TableCell>
             </TableRow>
