@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { toast } from '@/components/ui/use-toast';
+import { parse } from 'node-html-parser';
 
 interface Item {
   nameItem: string;
@@ -106,13 +107,15 @@ const items: Item[] = [
 
 const fetchTokenAmount = async (address: string) => {
   const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-  const targetUrl = `https://www.bkcscan.com/api/v2/tokens/${address}`;
+  const targetUrl = `https://www.bkcscan.com/tokens/${address}`;
   const response = await fetch(proxyUrl + targetUrl);
   if (!response.ok) {
-    throw new Error('Failed to fetch token amount');
+    throw new Error('Failed to fetch token data');
   }
-  const data = await response.json();
-  return JSON.stringify(data, null, 2);
+  const html = await response.text();
+  const root = parse(html);
+  const amountElement = root.querySelector('#__next > div > div:nth-child(3) > div:nth-child(2) > main > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(1)');
+  return amountElement ? amountElement.text.trim() : 'Amount not found';
 };
 
 const ItemTable = () => {
@@ -175,9 +178,9 @@ const ItemTable = () => {
                 </Button>
               </TableCell>
               <TableCell>
-                <pre className="text-xs overflow-auto max-h-40">
+                <div className="text-sm break-all">
                   {responseData[item.address] || '-'}
-                </pre>
+                </div>
               </TableCell>
             </TableRow>
           ))}
