@@ -105,11 +105,15 @@ const items: Item[] = [
 ];
 
 const fetchTokenAmount = async (address: string) => {
-  const response = await fetch(`https://www.bkcscan.com/api/v2/tokens/${address}`);
+  const response = await fetch(`https://www.bkcscan.com/tokens/${address}`);
   if (!response.ok) {
     throw new Error('Failed to fetch token amount');
   }
-  return response.json();
+  const html = await response.text();
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  const amountElement = doc.querySelector('#__next > div > div:nth-child(3) > div:nth-child(2) > main > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(1)');
+  return amountElement ? amountElement.textContent : 'N/A';
 };
 
 const ItemTable = () => {
@@ -144,7 +148,7 @@ const ItemTable = () => {
             <TableHead>Picture</TableHead>
             <TableHead>Name Item</TableHead>
             <TableHead>Address</TableHead>
-            <TableHead>Max total supply</TableHead>
+            <TableHead>จำนวน</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -163,7 +167,7 @@ const ItemTable = () => {
                   {isLoading && selectedAddress === item.address
                     ? 'Loading...'
                     : tokenAmount && selectedAddress === item.address
-                    ? tokenAmount.totalSupply
+                    ? tokenAmount
                     : 'ตรวจสอบจำนวน'}
                 </Button>
               </TableCell>
