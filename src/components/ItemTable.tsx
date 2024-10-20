@@ -111,7 +111,8 @@ const fetchTokenAmount = async (address: string) => {
   if (!response.ok) {
     throw new Error('Failed to fetch token amount');
   }
-  return response.text();
+  const data = await response.json();
+  return JSON.stringify(data, null, 2);
 };
 
 const ItemTable = () => {
@@ -174,9 +175,9 @@ const ItemTable = () => {
                 </Button>
               </TableCell>
               <TableCell>
-                <div className="text-sm break-all">
+                <pre className="text-xs overflow-auto max-h-40">
                   {responseData[item.address] || '-'}
-                </div>
+                </pre>
               </TableCell>
             </TableRow>
           ))}
