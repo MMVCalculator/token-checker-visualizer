@@ -1,8 +1,5 @@
-<lov-code>
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { toast } from '@/components/ui/use-toast';
 
 interface Item {
   nameItem: string;
@@ -85,3 +82,31 @@ const items: Item[] = [
   { nameItem: 'Banana', address: '0x0944882cF373Adc8c3de740821FB14c8669E89EB', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FVxxVC6k0IGSyrEINzOjq%252FItem_Banana.png%3Falt%3Dmedia%26token%3Ddc1cc034-84d2-4279-b229-21daf9b2af75&width=300&dpr=1&quality=100&sign=d8dc8e1a&sv=1' },
   { nameItem: 'Mangosteen', address: '0x1786a5391EaA5cfd5c8bc4376991B993380Db102', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FFquq0wiJK22IL2LpqNCb%252FItem_mangosteen.png%3Falt%3Dmedia%26token%3Dcc3c3d1e-9c1c-4047-9b47-3ecac3e35dd2&width=300&dpr=1&quality=100&sign=78cdeacc&sv=1' },
   { nameItem: 'Coconut', address: '0x8D53C45A94766b1e0Bc990045769CBBD8CF43d21', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https
+];
+
+const ItemTable: React.FC = () => {
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Item Name</TableHead>
+          <TableHead>Address</TableHead>
+          <TableHead>Image</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {items.map((item) => (
+          <TableRow key={item.address}>
+            <TableCell>{item.nameItem}</TableCell>
+            <TableCell>{item.address}</TableCell>
+            <TableCell>
+              <img src={item.imageUrl} alt={item.nameItem} className="w-16 h-16 object-contain" />
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  );
+};
+
+export default ItemTable;
