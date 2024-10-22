@@ -1,3 +1,4 @@
+<lov-code>
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@/components/ui/button';
@@ -32,7 +33,7 @@ const items: Item[] = [
   { nameItem: 'Golden Reed', address: '0x60F73E74Bd45EcCF464650F7c5094D37AD4BF17E', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FcErsPOZ9rpEs6YA7bY3v%252Fgolden_reed.png%3Falt%3Dmedia%26token%3D3aef57ce-1763-4ea5-9cf2-68e418041ff5&width=300&dpr=1&quality=100&sign=11a05bd0&sv=1' },
   { nameItem: 'Dream Lotus', address: '0x09e4b04995d982131A24A7EfBc1AA084C8b3f248', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FD2tddqPHvXvD4NtopkPi%252Fdream_lotus.png%3Falt%3Dmedia%26token%3Dee55d85d-dc1d-4b13-a674-a73389c96c5a&width=300&dpr=1&quality=100&sign=56e62cf5&sv=1' },
   { nameItem: 'Black Pearl', address: '0x6e6787E0dA9f430c3d194645c4046Be85AdE35AA', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FbhdApvmUQSoiEkKkDJPK%252Fblack_pearl.png%3Falt%3Dmedia%26token%3D0f60d7f1-68fd-431a-a28b-e88d13058535&width=300&dpr=1&quality=100&sign=cae28c34&sv=1' },
-  { nameItem: 'Rainbow Weed', address: '0xE1b69B33cA6d3e423f7500AA9ef0c08cC56f40F9', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FDm0a6oDHJndy5m1nDfH5%252Frainbow_weed.png%3Falt%3Dmedia%26token%3Dc14b4ab2-c2e7-417e-a883-f15ef7bd8412&width=300&dpr=1&quality=100&sign=dbdab9db&sv=1' },
+  { nameItem: 'Rainbow Weed', address: '0xE1b69B33cA6d3e423f7500AA9ef0c08cC56f40F9', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FDm0a6oDHJndy5m1nDfH5%252Frainbow_weed.png%3Falt%3Dmedia%26token%3dc14b4ab2-c2e7-417e-a883-f15ef7bd8412&width=300&dpr=1&quality=100&sign=dbdab9db&sv=1' },
   { nameItem: 'Fiberglass', address: '0xF311D220130Cc836cFb0281B99AeDD58548B271C', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FV7KuqX1Y0g5oKKzSuChf%252Ffiberglass.png%3Falt%3Dmedia%26token%3Dc1742154-9ab7-489b-83c7-91e4dc79b74d&width=300&dpr=1&quality=100&sign=e89b309c&sv=1' },
   { nameItem: 'String', address: '0xB3eDee17077038307Bb27FC8127f2cb3bF3f0a4A', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FPnFCMCBWOvSUZw6H2whL%252Fstring.png%3Falt%3Dmedia%26token%3D0a109ace-bafa-4491-8aa3-0d6b37d7fcfc&width=300&dpr=1&quality=100&sign=6b876aeb&sv=1' },
   { nameItem: 'Crystal Shank', address: '0x9dc6E9c871828F3532c58366a0C3926d1C1351eA', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FkTlFCVCi2HxYELULm8jb%252Fcrystal_shank.png%3Falt%3Dmedia%26token%3D18dabdde-ca2f-441a-857d-ce67a8223617&width=300&dpr=1&quality=100&sign=c39f6191&sv=1' },
@@ -84,99 +85,4 @@ const items: Item[] = [
   { nameItem: 'Green apple', address: '0x417e28bd41cD45d9F996B69450F81B02821A6D64', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FGlTTfWrIco7AfB9wpBEt%252FItem_GreenApple.png%3Falt%3Dmedia%26token%3Da565e708-a4e1-45bb-a964-9c69a1a18a81&width=300&dpr=1&quality=100&sign=a1656442&sv=1' },
   { nameItem: 'Banana', address: '0x0944882cF373Adc8c3de740821FB14c8669E89EB', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FVxxVC6k0IGSyrEINzOjq%252FItem_Banana.png%3Falt%3Dmedia%26token%3Ddc1cc034-84d2-4279-b229-21daf9b2af75&width=300&dpr=1&quality=100&sign=d8dc8e1a&sv=1' },
   { nameItem: 'Mangosteen', address: '0x1786a5391EaA5cfd5c8bc4376991B993380Db102', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FFquq0wiJK22IL2LpqNCb%252FItem_mangosteen.png%3Falt%3Dmedia%26token%3Dcc3c3d1e-9c1c-4047-9b47-3ecac3e35dd2&width=300&dpr=1&quality=100&sign=78cdeacc&sv=1' },
-  { nameItem: 'Coconut', address: '0x8D53C45A94766b1e0Bc990045769CBBD8CF43d21', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252F50a9UGBdZ1NXafwqFWou%252FItem_Coconut.png%3Falt%3Dmedia%26token%3D0be87832-abef-45ae-98dc-beed76ac834c&width=300&dpr=1&quality=100&sign=96f40c1b&sv=1' },
-  { nameItem: 'Tomato Soup', address: '0xbE46a81D181069aC0Ff18F4F7239Df10422E6DC3', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FUqPtsqaFUl0aWMuOsYVD%252FDish_Tomato%2520Soup.png%3Falt%3Dmedia%26token%3D0bc42749-3cff-4771-a407-2beb67c71935&width=300&dpr=1&quality=100&sign=8f1701cb&sv=1' },
-  { nameItem: 'Corn Soup', address: '0x2B09aE76dFc601210407560502B340E104787B34', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FfRQlxO1muKkiCgzqMMoR%252Fcrop_corn.png%3Falt%3Dmedia%26token%3D8ad32db1-b2c0-43b3-95c5-ce3bf9405942&width=300&dpr=1&quality=100&sign=13ac25ac&sv=1' },
-  { nameItem: 'Stir Fried Cabbage', address: '0xC2990515610028139F68016b321a0c36A5101104', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252Fq5xRkoO2a4DcprshJmc9%252FDish_CabbageMix.png%3Falt%3Dmedia%26token%3De79201d1-fda0-4572-afbf-160a585357a1&width=300&dpr=1&quality=100&sign=718eb660&sv=1' },
-  { nameItem: 'Dried Apple', address: '0xb035C229903A0cff939be36B532d8C11204e6837', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252F2rE0ZBCNuqDr1CAVWJ1x%252FResource_DyeApple.png%3Falt%3Dmedia%26token%3Df7643cea-1508-4da1-8c50-ea042319b887&width=300&dpr=1&quality=100&sign=c94ab908&sv=1' },
-  { nameItem: 'Salad', address: '0x2944D051Dc66669E04629b827Ae9E3EBcb1e48D9', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FcQXpxTQ5x0oioV3dsdcs%252FDish_Salad.png%3Falt%3Dmedia%26token%3D76401563-be25-445f-b91c-5c7649f5e2c7&width=300&dpr=1&quality=100&sign=4ec481e2&sv=1' },
-  { nameItem: 'Honey Comb', address: '0x619460ae4aD823efBA1c7A21FDf0a353893308B9', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252Fhbvb87RbnRlYOoWMfkdZ%252FItem_HoneyComb.png%3Falt%3Dmedia%26token%3Dbf4ea0e8-39fd-41fd-a685-ac372ae29bea&width=300&dpr=1&quality=100&sign=fe071671&sv=1' },
-  { nameItem: 'Honey', address: '0x575D7BFDBDF255d5741571334F159d903de1544F', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252Fs6k0D2BHwhghER5VvUfu%252FDish_Fruit%2520Salad.png%3Falt%3Dmedia%26token%3Dd8527866-411e-47df-8651-6fa02cee9bc8&width=300&dpr=1&quality=100&sign=81be4894&sv=1' },
-  { nameItem: 'Fruit Salad', address: '0x6Be8d96D01B30F18C9b54c69798a3584dF58c263', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252Fs6k0D2BHwhghER5VvUfu%252FDish_Fruit%2520Salad.png%3Falt%3Dmedia%26token%3Dd8527866-411e-47df-8651-6fa02cee9bc8&width=300&dpr=1&quality=100&sign=81be4894&sv=1' },
-  { nameItem: 'White Button', address: '0xcb74a1A9dB4285E97D4dE8aa4B61cd10277Ab479', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FmGRUP2YSPTm1dgreUQtw%252FItem_WhiteButton.png%3Falt%3Dmedia%26token%3D50a46d19-f97c-4bfa-99ba-f8c8ba24b076&width=300&dpr=1&quality=100&sign=d9bfcd74&sv=1' },
-  { nameItem: 'Shiitake', address: '0xd3b314b101b26Fa2bD19dF0d845A632D72C4Fc44', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FXmRqiEDTu3F4dv5glZ9x%252FItem_Shiitake.png%3Falt%3Dmedia%26token%3Da17cbc6b-2fd2-4e84-803d-3d6f63ee6917&width=300&dpr=1&quality=100&sign=1e64eb12&sv=1' },
-  { nameItem: 'King Trumpet', address: '0xC14f24835Efe355106aB8725488F16f93C8c5f96', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252F0vgKb3Pj3LqMomSsmsRt%252FItem_KingTrumpet.png%3Falt%3Dmedia%26token%3D27fd20a0-4e3a-4d46-80b9-f722a3c33acb&width=300&dpr=1&quality=100&sign=cf06d917&sv=1' },
-  { nameItem: 'Red Herb', address: '0x3F69C740456150268C5e23bD05a2A10Bf9e5c3CB', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FG1rUd23guDZ0gA12YEvD%252FItem_RedHerb.png%3Falt%3Dmedia%26token%3D812d3666-8c6d-4437-939f-8e83e0bb90d1&width=300&dpr=1&quality=100&sign=1ff5acab&sv=1' },
-  { nameItem: 'Green Herb', address: '0xDe496524c30c460922E7810DDC6c806c0E2C5354', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FenyqPYUJlkxirlNYBRxE%252FItem_GreenHerb.png%3Falt%3Dmedia%26token%3D0a7b3695-3e9e-40c4-b040-1608d037e2bb&width=300&dpr=1&quality=100&sign=baf2a97c&sv=1' },
-  { nameItem: 'Lesser Health Potion', address: '0xE66f21d817Af8F99129aF6023332dd7b37503B9d', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FWmw0subiMtRQfWwCa2Ch%252FBottle_Red.png%3Falt%3Dmedia%26token%3D6e5fa236-5578-4f5d-bcfc-5cd36139ecd4&width=300&dpr=1&quality=100&sign=99bd7664&sv=1' },
-  { nameItem: 'Health Potion', address: '0xbD60c8caF6e22907576d9e363aB1f91b43AAF769', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FFQd6VRVMnBRaUwpO81hk%252Fpotion_red_fat.png%3Falt%3Dmedia%26token%3Da06b081c-421d-4071-9316-b37bcbebb9c3&width=300&dpr=1&quality=100&sign=6feb0abc&sv=1' },
-  { nameItem: 'Fried Grasshopper', address: '0x66E2239252d81c62232a78db6F51b45AfB80DAf8', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252Fl31N0yCSg0WktiNt4CeU%252FGrasshopperSnack2.png%3Falt%3Dmedia%26token%3D5c931678-d776-42c4-baf1-8027a7d2d5ad&width=300&dpr=4&quality=100&sign=f353d65d&sv=1' },
-  { nameItem: 'Khanom Krok', address: '0x8ae4B43b5fA103477669094FE55DF13957c44Fe2', imageUrl: 'https://whitepaper-th.morningmoonvillage.com/~gitbook/image?url=https%3A%2F%2F3405632122-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F-Mi6LXCVY3A30JRGM2nH%252Fuploads%252FUQjIen7Jn5vkKhyMfGJX%252F434644216927270572210351164339248601692006.png%3Falt%3Dmedia%26token%3D49073887-2d61-46b9-91d1-9e472e68c900&width=300&dpr=1&quality=100&sign=b1f591ac&sv=1' },
-];
-
-const fetchTokenAmount = async (address: string) => {
-  const response = await fetch(`https://www.bkcscan.com/tokens/${address}`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch token amount');
-  }
-  const html = await response.text();
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
-  const amountElement = doc.querySelector('#__next > div > div:nth-child(3) > div:nth-child(2) > main > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(1)');
-  return amountElement ? amountElement.textContent : 'N/A';
-};
-
-const ItemTable = () => {
-  const [selectedAddress, setSelectedAddress] = React.useState<string | null>(null);
-
-  const { data: tokenAmount, isLoading, error, refetch } = useQuery({
-    queryKey: ['tokenAmount', selectedAddress],
-    queryFn: () => fetchTokenAmount(selectedAddress!),
-    enabled: !!selectedAddress,
-  });
-
-  const handleCheckAmount = (address: string) => {
-    setSelectedAddress(address);
-    refetch();
-  };
-
-  React.useEffect(() => {
-    if (error) {
-      toast({
-        title: 'Error',
-        description: 'Failed to fetch token amount. Please try again.',
-        variant: 'destructive',
-      });
-    }
-  }, [error]);
-
-  return (
-    <div className="overflow-x-auto">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Picture</TableHead>
-            <TableHead>Name Item</TableHead>
-            <TableHead>Address</TableHead>
-            <TableHead>จำนวน</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {items.map((item) => (
-            <TableRow key={item.address}>
-              <TableCell>
-                <img src={item.imageUrl} alt={item.nameItem} className="w-12 h-12 object-contain mx-auto" />
-              </TableCell>
-              <TableCell>{item.nameItem}</TableCell>
-              <TableCell>{item.address}</TableCell>
-              <TableCell>
-                <Button
-                  onClick={() => handleCheckAmount(item.address)}
-                  disabled={isLoading && selectedAddress === item.address}
-                >
-                  {isLoading && selectedAddress === item.address
-                    ? 'Loading...'
-                    : tokenAmount && selectedAddress === item.address
-                    ? tokenAmount
-                    : 'ตรวจสอบจำนวน'}
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
-  );
-};
-
-export default ItemTable;
+  { nameItem: 'Coconut', address: '0x8D53C45A94766b1e0Bc990045769CBBD8CF43d21', imageUrl: 'https://whitepaper-th.m
